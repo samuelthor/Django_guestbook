@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<html style="overflow-y: scroll;" lang="en">
+<link rel="stylesheet" type="text/css" href="{% static 'guestbook/bootstrap.css' %}" />
+<body><br>
+<title>{{ question.title_text }}</title>
+<div class="container theme-showcase" role="main">
+  <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation" class="active"><a href="../../">Home</a></li>
+          <li role="presentation"><a href="../../create/">New Post</a></li>
+          <li role="presentation"><a href="#">About</a></li>
+        </ul>
+      </nav>
+      <h3 class="text-muted">Guestbook</h3>
+    </div>
+      <div class="jumbotron">
+          <h2>{{ question.title_text }}</h2>
+          <p>{{ question.question_text }}</p>
+      </div>
+</div>
+<nav class="container">
+  <ul class="pager">
+    <li class="previous"><a href="{% url 'guestbook:detail' previous %}"><span aria-hidden="true">&larr;</span> Older</a></li>
+    <li class="next"><a href="{% url 'guestbook:detail' next %}">Newer <span aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+</nav>
+
+</body>

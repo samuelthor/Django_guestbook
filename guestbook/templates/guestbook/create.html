@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<html style="overflow-y: scroll;" lang="en">
+<link rel="stylesheet" type="text/css" href="{% static 'guestbook/bootstrap.css' %}" />
+<title>Swag</title>
+<body><br>
+<div class="container theme-showcase" role="main">
+  <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation"><a href="../">Home</a></li>
+          <li role="presentation" class="active"><a href="#">New Post</a></li>
+          <li role="presentation"><a href="#">About</a></li>
+        </ul>
+      </nav>
+      <h3 class="text-muted">Guestbook</h3>
+    </div>
+<form action="/guestbook/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <br>
+    <input type="text" class="form-control"  placeholder="Title" name="titill"/>
+    <br>
+    ​<textarea name="txtArea" class="form-control" rows="10" cols="70" placeholder="Text" ></textarea>
+    <br>
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+</form>
